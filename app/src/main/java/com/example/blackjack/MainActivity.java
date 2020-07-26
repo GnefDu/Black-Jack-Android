@@ -27,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView dealer0, dealer1, dealer2, dealer3, dealer4, dealer5, dealer6, dealer7, dealer8, dealer9;
 
-    int[] deck = new int[52];
-    int[] player = new int[10];
-    int[] dealer = new int[10];
+    Game game = new Game();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,37 +160,16 @@ public class MainActivity extends AppCompatActivity {
 
                 dealer9.setImageResource(R.drawable.blank);
 
-                deck = shuffle(deck);
+                game.shuffle();
 
             }
         });
 
         //create and shuffle 52 card deck
-        deck = createDeck();
-        deck = shuffle(deck);
+        game.createDeck();
+        game.shuffle();
 
         }
-        //Creates a new deck
-        public static int[] createDeck(){
-            int[] arr = new int[52];
-            for(int i = 0; i < 52; i++){
-                arr[i] = i;
-            }
-            return arr;
-        }
-        //Shuffles the deck
-        public static int[] shuffle(int[] arr){
-            Random rand = new Random();
-            for (int i = 0; i < arr.length; i++) {
-                int randPos = rand.nextInt(arr.length);
-                int temp = arr[i];
-                arr[i] = arr[randPos];
-                arr[randPos] = temp;
-            }
-            return arr;
-        }
-
-
 
 
     }
