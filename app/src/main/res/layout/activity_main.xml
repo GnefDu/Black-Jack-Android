@@ -6,6 +6,224 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/player"
+        android:layout_width="360dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="356dp"
+        android:text="Player Hand"
+        android:textSize="32sp" />
+
+    <ImageView
+        android:id="@+id/player19"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="171dp"
+        android:layout_marginBottom="541dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player21"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginBottom="541dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player22"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="243dp"
+        android:layout_marginBottom="541dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player23"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="315dp"
+        android:layout_marginBottom="541dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player24"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="432dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player25"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginBottom="432dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player26"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="171dp"
+        android:layout_marginBottom="432dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player27"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="243dp"
+        android:layout_marginBottom="432dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player28"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="315dp"
+        android:layout_marginBottom="432dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player20"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="541dp"
+        app:srcCompat="@drawable/blue_back" />
+
+    <ImageView
+        android:id="@+id/player0"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="206dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player2"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="167dp"
+        android:layout_marginBottom="206dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player1"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginBottom="206dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player4"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="311dp"
+        android:layout_marginBottom="206dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player3"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="239dp"
+        android:layout_marginBottom="206dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player8"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="239dp"
+        android:layout_marginBottom="97dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player5"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="97dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player7"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="167dp"
+        android:layout_marginBottom="97dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player9"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="311dp"
+        android:layout_marginBottom="97dp"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/player6"
+        android:layout_width="72dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginBottom="97dp"
+        app:srcCompat="@drawable/blank" />
+
     <Button
         android:id="@+id/button_reset"
         android:layout_width="wrap_content"
@@ -42,5 +260,18 @@
         android:layout_marginRight="167dp"
         android:layout_marginBottom="20dp"
         android:text="Stand" />
+
+    <TextView
+        android:id="@+id/dealer"
+        android:layout_width="360dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="20dp"
+        android:text="Dealer Hand"
+        android:textSize="32sp" />
 
 </RelativeLayout>
