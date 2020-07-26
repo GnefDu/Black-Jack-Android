@@ -37,7 +37,7 @@
         android:textSize="24sp" />
 
     <ImageView
-        android:id="@+id/player27"
+        android:id="@+id/dealer8"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player28"
+        android:id="@+id/dealer9"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -57,7 +57,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player25"
+        android:id="@+id/dealer6"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -67,7 +67,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player24"
+        android:id="@+id/dealer5"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -77,7 +77,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player21"
+        android:id="@+id/dealer1"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -87,7 +87,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player19"
+        android:id="@+id/dealer2"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -98,7 +98,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player22"
+        android:id="@+id/dealer3"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -108,7 +108,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player23"
+        android:id="@+id/dealer4"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -118,7 +118,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/player20"
+        android:id="@+id/dealer0"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
@@ -128,7 +128,7 @@
         app:srcCompat="@drawable/blue_back" />
 
     <ImageView
-        android:id="@+id/player26"
+        android:id="@+id/dealer7"
         android:layout_width="72dp"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
