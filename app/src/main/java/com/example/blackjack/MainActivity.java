@@ -18,12 +18,14 @@ public class MainActivity extends AppCompatActivity {
     Button button_hit, button_stand, button_reset;
 
     //Declare TextViews
-    TextView text_display, text_player, text_dealer;
+    TextView text_display, text_player, text_dealer, dealer_count, player_count;
 
     //Declare ImageViews
     ImageView player0, player1, player2, player3, player4, player5, player6, player7, player8, player9;
 
     ImageView dealer0, dealer1, dealer2, dealer3, dealer4, dealer5, dealer6, dealer7, dealer8, dealer9;
+
+    int[] deck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         text_dealer = (TextView) findViewById(R.id.dealer);
 
+        player_count = (TextView) findViewById(R.id.player_count);
+
+        dealer_count = (TextView) findViewById(R.id.dealer_count);
 
         // ImageViews
 
@@ -111,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
                 player0.setImageResource(R.drawable.as);
             }
         });
+
+        //create deck
+
+        for(int i = 0; i < 52; i++){
+            deck[i] = i;
+        }
 
         }
 
