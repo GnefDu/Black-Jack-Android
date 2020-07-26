@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import android.widget.ImageView;
 
+import java.util.*;
+
 public class MainActivity extends AppCompatActivity {
 
     //Declare buttons
@@ -25,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView dealer0, dealer1, dealer2, dealer3, dealer4, dealer5, dealer6, dealer7, dealer8, dealer9;
 
-    int[] deck;
+    int[] deck = new int[52];
+    int[] player = new int[10];
+    int[] dealer = new int[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,31 +103,96 @@ public class MainActivity extends AppCompatActivity {
         button_hit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                player0.setImageResource(R.drawable.ad);
+                player0.setImageResource(R.drawable.c1);
             }
         });
 
         button_stand.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                player0.setImageResource(R.drawable.ah);
+                player0.setImageResource(R.drawable.c0);
             }
         });
 
+        // Reset the 52 card deck
+        // Resets all images to blank
+        // Deals 2 cards to the dealer
+        // Deals 2 cards to the player
         button_reset.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                player0.setImageResource(R.drawable.as);
+
+                player0.setImageResource(R.drawable.blank);
+
+                player1.setImageResource(R.drawable.blank);
+
+                player2.setImageResource(R.drawable.blank);
+
+                player3.setImageResource(R.drawable.blank);
+
+                player4.setImageResource(R.drawable.blank);
+
+                player5.setImageResource(R.drawable.blank);
+
+                player6.setImageResource(R.drawable.blank);
+
+                player7.setImageResource(R.drawable.blank);
+
+                player8.setImageResource(R.drawable.blank);
+
+                player9.setImageResource(R.drawable.blank);
+
+                dealer0.setImageResource(R.drawable.blank);
+
+                dealer1.setImageResource(R.drawable.blank);
+
+                dealer2.setImageResource(R.drawable.blank);
+
+                dealer3.setImageResource(R.drawable.blank);
+
+                dealer4.setImageResource(R.drawable.blank);
+
+                dealer5.setImageResource(R.drawable.blank);
+
+                dealer6.setImageResource(R.drawable.blank);
+
+                dealer7.setImageResource(R.drawable.blank);
+
+                dealer8.setImageResource(R.drawable.blank);
+
+                dealer9.setImageResource(R.drawable.blank);
+
+                deck = shuffle(deck);
+
             }
         });
 
-        //create deck
-
-        for(int i = 0; i < 52; i++){
-            deck[i] = i;
-        }
+        //create and shuffle 52 card deck
+        deck = createDeck();
+        deck = shuffle(deck);
 
         }
+        //Creates a new deck
+        public static int[] createDeck(){
+            int[] arr = new int[52];
+            for(int i = 0; i < 52; i++){
+                arr[i] = i;
+            }
+            return arr;
+        }
+        //Shuffles the deck
+        public static int[] shuffle(int[] arr){
+            Random rand = new Random();
+            for (int i = 0; i < arr.length; i++) {
+                int randPos = rand.nextInt(arr.length);
+                int temp = arr[i];
+                arr[i] = arr[randPos];
+                arr[randPos] = temp;
+            }
+            return arr;
+        }
+
+
 
 
     }
