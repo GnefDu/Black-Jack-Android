@@ -1,3 +1,9 @@
+/*
+Author: Feng Du
+
+Class used to create an instance of a black jack game
+ */
+
 package com.example.blackjack;
 
 import java.util.*;
@@ -26,6 +32,7 @@ public class Game {
         }
     }
     //shuffle deck
+    // Resets the hands
     public void shuffle(){
         Random rand = new Random();
         for (int i = 0; i < this.deck.size(); i++) {
@@ -171,6 +178,7 @@ public class Game {
         }
         return count;
     }
+
     // returns true if player has busted
     public boolean playerBust(){
         int count = countPlayer();
@@ -179,6 +187,7 @@ public class Game {
         }
         return playerBust;
     }
+
     //return true is player has busted
     public boolean dealerBust(){
         int count = countDealer();
@@ -187,7 +196,7 @@ public class Game {
         }
         return dealerBust;
     }
-    //Same method as count dealer excep is iterates from 1 so that the first card is hidden
+    //Same method as count dealer except is iterates from 1 so that the first card's value is hidden
     public int countDealerHidden(){
 
         int ace = 0;

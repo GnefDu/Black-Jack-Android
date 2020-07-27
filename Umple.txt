@@ -1,0 +1,17 @@
+class Blackjack{
+  sm{
+    gameStart{
+      hit -> gameStart;
+      stand -> gameStart;
+      deal -> playerTurn;
+    }
+    playerTurn{
+      hit -> playerTurn;
+      stand -> dealerTurn;
+    }
+    dealerTurn{
+      deal -> playerTurn;
+    }
+  }
+  
+}

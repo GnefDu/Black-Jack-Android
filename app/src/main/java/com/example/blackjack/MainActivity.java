@@ -1,3 +1,7 @@
+/*
+Author: Feng Du
+*/
+
 package com.example.blackjack;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +17,7 @@ import android.widget.TextView;
 import android.widget.ImageView;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView player0, player1, player2, player3, player4, player5, player6, player7, player8, player9;
 
     ImageView dealer0, dealer1, dealer2, dealer3, dealer4, dealer5, dealer6, dealer7, dealer8, dealer9;
-
+    // Create new instance of Game
     Game game = new Game();
+
+    // Global variables
 
     int playerCard = 2;
 
@@ -105,56 +112,27 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //OnClickListener
-        button_hit.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
+        //OnClickListeners for each button
 
-                if(!start){
-                    text_display.setText("Press the deal button before hitting");
-                    return;
-                }
-
-                game.dealPlayer();
-                getImagePlayer(playerCard).setImageResource(getId(game.getPlayer().get(playerCard)));
-                player_count.setText(Integer.toString(game.countPlayer()));
-                playerCard++;
-                if(game.countPlayer() > 21){
-                    text_display.setText("Player bust, Dealer wins");
-                    dealer0.setImageResource(getId(game.getDealer().get(0)));
-
-                }
-            }
-        });
-
+        //If hit or stand are pressed before the first deal
         button_stand.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 
-                if(!start){
+                if (!start) {
                     text_display.setText("Press the deal button before standing");
                     return;
                 }
-                int card = 2;
-                while (game.countDealer() < 17) {
-                    game.dealDealer();
-                    getImageDealer(card).setImageResource(getId(game.getDealer().get(card)));
-                    card++;
-                }
-                dealer_count.setText(Integer.toString(game.countDealer()));
-                dealer0.setImageResource(getId(game.getDealer().get(0)));
+            }
+        });
 
-                if(game.countDealer() > 21){
-                    text_display.setText("Dealer bust, Player wins");
-                }
-                else if(game.countPlayer() > game.countDealer()){
-                    text_display.setText("Player wins");
-                }
-                else if(game.countPlayer() == game.countDealer()){
-                    text_display.setText("Tie");
-                }
-                else{
-                    text_display.setText("Dealer wins");
+        button_hit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                if (!start) {
+                    text_display.setText("Press the deal button before hitting");
+                    return;
                 }
             }
         });
@@ -243,6 +221,74 @@ public class MainActivity extends AppCompatActivity {
 
                 player_count.setText(Integer.toString(game.countPlayer()));
 
+
+
+                // Hit results in player drawing a card
+                // If player busts the player is notified
+                button_hit.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+
+                        if(!start){
+                            text_display.setText("Press the deal button before hitting");
+                            return;
+                        }
+
+                        game.dealPlayer();
+                        getImagePlayer(playerCard).setImageResource(getId(game.getPlayer().get(playerCard)));
+                        player_count.setText(Integer.toString(game.countPlayer()));
+                        playerCard++;
+                        if(game.countPlayer() > 21){
+                            text_display.setText("Player bust, Dealer wins");
+                            dealer0.setImageResource(getId(game.getDealer().get(0)));
+                            button_hit.setOnClickListener(null);
+                            button_stand.setOnClickListener(null);
+
+                        }
+                    }
+                });
+                // Stand allows dealer to draw until greater than 17 or bust
+                // Hands are then compared and winner is announced
+                button_stand.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+
+                        if(!start){
+                            text_display.setText("Press the deal button before standing");
+                            return;
+                        }
+                        int card = 2;
+                        while (game.countDealer() < 17) {
+                            game.dealDealer();
+                            getImageDealer(card).setImageResource(getId(game.getDealer().get(card)));
+                            card++;
+                        }
+                        dealer_count.setText(Integer.toString(game.countDealer()));
+                        dealer0.setImageResource(getId(game.getDealer().get(0)));
+
+                        if(game.countDealer() > 21){
+                            text_display.setText("Dealer bust, Player wins");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                        else if(game.countPlayer() > game.countDealer()){
+                            text_display.setText("Player wins");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                        else if(game.countPlayer() == game.countDealer()){
+                            text_display.setText("Tie");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                        else{
+                            text_display.setText("Dealer wins");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                    }
+                });
+
             }
         });
 
@@ -251,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         game.shuffle();
 
         }
-
+        //Get the Id of drawable cards
         public int getId(int i){
             switch(i){
                 case 0:
@@ -363,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return -1;
         }
-
+        //Gets the ImageViews for dealer
         public ImageView getImageDealer(int i){
             switch(i){
                 case 2:
@@ -385,27 +431,27 @@ public class MainActivity extends AppCompatActivity {
             }
             return dealer1;
         }
-
-    public ImageView getImagePlayer(int i){
-        switch(i){
-            case 2:
-                return player2;
-            case 3:
-                return player3;
-            case 4:
-                return player4;
-            case 5:
-                return player5;
-            case 6:
-                return player6;
-            case 7:
-                return player7;
-            case 8:
-                return player8;
-            case 9:
-                return player9;
-        }
-        return player1;
+        //Gets the image views for player
+        public ImageView getImagePlayer(int i){
+            switch(i){
+                case 2:
+                    return player2;
+                case 3:
+                    return player3;
+                case 4:
+                    return player4;
+                case 5:
+                    return player5;
+                case 6:
+                    return player6;
+                case 7:
+                    return player7;
+                case 8:
+                    return player8;
+                case 9:
+                    return player9;
+            }
+            return player1;
     }
 
 
