@@ -242,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
                             text_display.setText("Player bust, Dealer wins");
                             dealer0.setImageResource(getId(game.getDealer().get(0)));
                             button_hit.setOnClickListener(null);
+                            button_stand.setOnClickListener(null);
 
                         }
                     }
