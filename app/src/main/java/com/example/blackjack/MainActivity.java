@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     Game game = new Game();
 
+    int playerCard = 2;
+
+    boolean start = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -46,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         //Text Views
 
         text_display = (TextView) findViewById(R.id.display);
+
+        text_display.setText("Dealer hits until 17 or greater");
 
         text_player = (TextView) findViewById(R.id.player);
 
@@ -97,18 +103,59 @@ public class MainActivity extends AppCompatActivity {
 
         dealer9 = (ImageView) findViewById(R.id.dealer9);
 
+
+
         //OnClickListener
         button_hit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                player0.setImageResource(R.drawable.c1);
+
+                if(!start){
+                    text_display.setText("Press the deal button before hitting");
+                    return;
+                }
+
+                game.dealPlayer();
+                getImagePlayer(playerCard).setImageResource(getId(game.getPlayer().get(playerCard)));
+                player_count.setText(Integer.toString(game.countPlayer()));
+                playerCard++;
+                if(game.countPlayer() > 21){
+                    text_display.setText("Player bust, Dealer wins");
+                    dealer0.setImageResource(getId(game.getDealer().get(0)));
+
+                }
             }
         });
 
         button_stand.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                player0.setImageResource(R.drawable.c0);
+            public void onClick(View v) {
+
+                if(!start){
+                    text_display.setText("Press the deal button before standing");
+                    return;
+                }
+                int card = 2;
+                while (game.countDealer() < 17) {
+                    game.dealDealer();
+                    getImageDealer(card).setImageResource(getId(game.getDealer().get(card)));
+                    card++;
+                }
+                dealer_count.setText(Integer.toString(game.countDealer()));
+                dealer0.setImageResource(getId(game.getDealer().get(0)));
+
+                if(game.countDealer() > 21){
+                    text_display.setText("Dealer bust, Player wins");
+                }
+                else if(game.countPlayer() > game.countDealer()){
+                    text_display.setText("Player wins");
+                }
+                else if(game.countPlayer() == game.countDealer()){
+                    text_display.setText("Tie");
+                }
+                else{
+                    text_display.setText("Dealer wins");
+                }
             }
         });
 
@@ -119,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
         button_reset.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
+                start = true;
 
                 player0.setImageResource(R.drawable.blank);
 
@@ -160,6 +209,10 @@ public class MainActivity extends AppCompatActivity {
 
                 dealer9.setImageResource(R.drawable.blank);
 
+                text_display.setText("");
+
+                playerCard = 2;
+
                 game.createDeck();
 
                 game.shuffle();
@@ -172,19 +225,19 @@ public class MainActivity extends AppCompatActivity {
 
                 int card = game.getPlayer().get(0);
 
-                player0.setImageResource(card(card));
+                player0.setImageResource(getId(card));
 
                 game.dealDealer();
 
                 card = game.getDealer().get(1);
 
-                dealer1.setImageResource(card(card));
+                dealer1.setImageResource(getId(card));
 
                 game.dealPlayer();
 
                 card = game.getPlayer().get(1);
 
-                player1.setImageResource(card(card));
+                player1.setImageResource(getId(card));
 
                 dealer_count.setText(Integer.toString(game.countDealerHidden()));
 
@@ -199,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        public int card(int i){
+        public int getId(int i){
             switch(i){
                 case 0:
                     return R.drawable.c0;
@@ -306,9 +359,56 @@ public class MainActivity extends AppCompatActivity {
                 case 51:
                     return R.drawable.c51;
 
+
             }
             return -1;
         }
+
+        public ImageView getImageDealer(int i){
+            switch(i){
+                case 2:
+                    return dealer2;
+                case 3:
+                    return dealer3;
+                case 4:
+                    return dealer4;
+                case 5:
+                    return dealer5;
+                case 6:
+                    return dealer6;
+                case 7:
+                    return dealer7;
+                case 8:
+                    return dealer8;
+                case 9:
+                    return dealer9;
+            }
+            return dealer1;
+        }
+
+    public ImageView getImagePlayer(int i){
+        switch(i){
+            case 2:
+                return player2;
+            case 3:
+                return player3;
+            case 4:
+                return player4;
+            case 5:
+                return player5;
+            case 6:
+                return player6;
+            case 7:
+                return player7;
+            case 8:
+                return player8;
+            case 9:
+                return player9;
+        }
+        return player1;
+    }
+
+
 
 
 

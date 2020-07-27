@@ -121,7 +121,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="19dp"
         android:layout_marginBottom="485dp"
-        app:srcCompat="@drawable/c0" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/player4"
@@ -274,8 +274,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="2dp"
         android:gravity="center"
-        android:text="Test"
-        android:textSize="32sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/dealer"
@@ -301,7 +300,6 @@
         android:layout_marginTop="54dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
-        android:text="test"
         android:textSize="24sp" />
 
     <TextView
@@ -314,7 +312,6 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="306dp"
-        android:text="TextView"
         android:textSize="24sp" />
 
 </RelativeLayout>
