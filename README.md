@@ -23,6 +23,8 @@ Extra black jack rules:
 1) There is currently money/betting implemented
 2) No splitting, doubling, or blackjack implemented
 
+State diagram along with umple code are included as files in the top level of the github repository.
+
 
 User Stories:
 
@@ -44,7 +46,7 @@ To compile:
 
 Architecture:
 
-The app is made up of two main components:
+The app is made up of three main components:
 
 1) Game.java
 2) MainActivity.java
@@ -60,6 +62,4 @@ The two java files are located in app/src/main
 XML file is located in app/src/main/res/layout
 
 
-
-State diagram along with umple code are included as files in the top level of the github repository.
 
