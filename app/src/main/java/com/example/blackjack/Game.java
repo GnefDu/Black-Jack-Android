@@ -194,7 +194,7 @@ public class Game {
         }
         return dealerBust;
     }
-    //Same method as count dealer except is iterates from 1 so that the first card is hidden
+    //Same method as count dealer except is iterates from 1 so that the first card's value is hidden
     public int countDealerHidden(){
 
         int ace = 0;
