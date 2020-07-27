@@ -1,4 +1,6 @@
 Testing Game.java using a text based main program:
+Testing creates a deck, shuffles and deals cards. Then checks for count and bust. 
+Deck is printed to console before and after the players have drawn cards.
 
 J = 0
 25
