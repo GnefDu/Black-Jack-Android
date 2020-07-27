@@ -38,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView player0, player1, player2, player3, player4, player5, player6, player7, player8, player9;
 
     ImageView dealer0, dealer1, dealer2, dealer3, dealer4, dealer5, dealer6, dealer7, dealer8, dealer9;
-
+    // Create new instance of Game
     Game game = new Game();
+
+    // Global variables
 
     int playerCard = 2;
 
@@ -117,7 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //OnClickListener
+        //OnClickListeners for each button
+
+        // Hit results in player drawing a card
+        // If player busts the player is notified
         button_hit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -139,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Stand allows dealer to draw until greater than 17 or bust
+        // Hands are then compared and winner is announced
         button_stand.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -263,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
         game.shuffle();
 
         }
-
+        //Get the Id of drawable cards
         public int getId(int i){
             switch(i){
                 case 0:
@@ -375,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return -1;
         }
-
+        //Gets the ImageViews for dealer
         public ImageView getImageDealer(int i){
             switch(i){
                 case 2:
@@ -397,27 +404,27 @@ public class MainActivity extends AppCompatActivity {
             }
             return dealer1;
         }
-
-    public ImageView getImagePlayer(int i){
-        switch(i){
-            case 2:
-                return player2;
-            case 3:
-                return player3;
-            case 4:
-                return player4;
-            case 5:
-                return player5;
-            case 6:
-                return player6;
-            case 7:
-                return player7;
-            case 8:
-                return player8;
-            case 9:
-                return player9;
-        }
-        return player1;
+        //Gets the image views for player
+        public ImageView getImagePlayer(int i){
+            switch(i){
+                case 2:
+                    return player2;
+                case 3:
+                    return player3;
+                case 4:
+                    return player4;
+                case 5:
+                    return player5;
+                case 6:
+                    return player6;
+                case 7:
+                    return player7;
+                case 8:
+                    return player8;
+                case 9:
+                    return player9;
+            }
+            return player1;
     }
 
 
