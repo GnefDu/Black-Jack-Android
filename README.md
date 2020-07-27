@@ -63,5 +63,7 @@ The two java files are located in app/src/main
 
 XML file is located in app/src/main/res/layout
 
+Tests are shown it testing.txt
+
 
 
