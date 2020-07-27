@@ -22,13 +22,18 @@ The app is made up of two main components:
 
 1) Game.java
 2) MainActivity.java
+3) activity_main.xml
 
 Game.java contains is a class which contains everything required to play a game of black jack. All methods are included within
 the class.
 
-MainActivity.java creates a mobile interface that uses an instance of Game.java to play a game of blackjack.
+MainActivity.java and activity_main.xml creates a mobile interface that uses an instance of Game.java to play a game of blackjack.
 
-These two java files are located in app/src/main
+The two java files are located in app/src/main
+
+XML file is located in app/src/main/res/layout
+
+
 
 State diagram along with umple code are included as files in the top level of the github repository.
 
