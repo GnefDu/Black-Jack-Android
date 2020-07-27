@@ -23,7 +23,6 @@ Extra black jack rules:
 1) There is currently money/betting implemented
 2) No splitting, doubling, or blackjack implemented
 
-
 State diagram along with umple code are included as files in the top level of the github repository.
 
 
@@ -44,6 +43,8 @@ To compile:
 
 1) Load the project into android studio
 2) Build the apk
+
+.apk file is included in the top level of the github repository
 
 Architecture:
 
