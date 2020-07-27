@@ -1,5 +1,7 @@
 /*
 Author: Feng Du
+
+Class used to create an instance of a black jack game
  */
 
 package com.example.blackjack;
