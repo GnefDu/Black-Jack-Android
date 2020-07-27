@@ -28,6 +28,7 @@ the class.
 
 MainActivity.java creates a mobile interface that uses an instance of Game.java to play a game of blackjack.
 
+These two java files are located in app/src/main
 
-
+State diagram along with umple code are included as files in the top level of the github repository.
 
