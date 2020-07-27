@@ -34,6 +34,10 @@ public class Game {
             this.deck.set(i, this.deck.get(randPos));
             this.deck.set(randPos, temp);
         }
+        this.player = new ArrayList<Integer>();
+        this.dealer = new ArrayList<Integer>();
+        this.playerBust = false;
+        this.dealerBust = false;
     }
     //deals a card to the player from the deck
     public void dealPlayer(){
@@ -54,12 +58,13 @@ public class Game {
 
         int ace = 0;
         int count = 0;
-        // no ace in hand
+        //check for aces in hand
         for (int i = 0; i < this.getPlayer().size(); i++){
             if(this.getPlayer().get(i) < 4){
                 ace += 1;
             }
         }
+        // no ace
         if(ace == 0){
             for (int i = 0; i < this.getPlayer().size(); i++){
                 if(this.getPlayer().get(i) > 38){
@@ -85,7 +90,7 @@ public class Game {
                 }
             }
         }
-        // if greater than 21 check i
+        // if greater than 21 check loops down over number of aces until less than 21 or no aces left
         while(ace > 0){
             ace--;
             if(count > 21){
@@ -112,12 +117,13 @@ public class Game {
 
         int ace = 0;
         int count = 0;
-        // no ace in hand
+        // counts aces
         for (int i = 0; i < this.getDealer().size(); i++){
             if(this.getDealer().get(i) < 4){
                 ace += 1;
             }
         }
+        // no ace in hand
         if(ace == 0){
             for (int i = 0; i < this.getDealer().size(); i++){
                 if(this.getDealer().get(i) > 38){
@@ -143,7 +149,7 @@ public class Game {
                 }
             }
         }
-        // if greater than 21 check i
+        // if greater than 21 check loops down over number of aces until less than 21 or no aces left
         while(ace > 0){
             ace--;
             if(count > 21){
@@ -165,7 +171,7 @@ public class Game {
         }
         return count;
     }
-
+    // returns true if player has busted
     public boolean playerBust(){
         int count = countPlayer();
         if(count > 21){
@@ -173,13 +179,71 @@ public class Game {
         }
         return playerBust;
     }
-
+    //return true is player has busted
     public boolean dealerBust(){
         int count = countDealer();
         if(count > 21){
             dealerBust = true;
         }
         return dealerBust;
+    }
+    //Same method as count dealer excep is iterates from 1 so that the first card is hidden
+    public int countDealerHidden(){
+
+        int ace = 0;
+        int count = 0;
+        // no ace in hand
+        for (int i = 1; i < this.getDealer().size(); i++){
+            if(this.getDealer().get(i) < 4){
+                ace += 1;
+            }
+        }
+        if(ace == 0){
+            for (int i = 1; i < this.getDealer().size(); i++){
+                if(this.getDealer().get(i) > 38){
+                    count += 10;
+                }
+                else{
+                    count += (this.getDealer().get(i) / 4) + 1;
+                }
+            }
+        }
+        // ace in hand
+        else{
+            //counts ace as 11
+            for (int i = 1; i < this.getDealer().size(); i++){
+                if(this.getDealer().get(i) < 4){
+                    count += 11;
+                }
+                else if(this.getDealer().get(i) > 38){
+                    count += 10;
+                }
+                else{
+                    count += (this.getDealer().get(i) / 4) + 1;
+                }
+            }
+        }
+        // if greater than 21 check i
+        while(ace > 0){
+            ace--;
+            if(count > 21){
+                int countAce = 0;
+                count = 0;
+                for (int i = 1; i < this.getDealer().size(); i++){
+                    if(this.getDealer().get(i) < 4 & countAce < ace){
+                        count += 11;
+                        countAce++;
+                    }
+                    else if(this.getDealer().get(i) > 38){
+                        count += 10;
+                    }
+                    else{
+                        count += (this.getDealer().get(i) / 4) + 1;
+                    }
+                }
+            }
+        }
+        return count;
     }
 
 

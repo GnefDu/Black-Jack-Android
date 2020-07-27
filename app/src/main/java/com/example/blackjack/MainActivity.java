@@ -160,7 +160,35 @@ public class MainActivity extends AppCompatActivity {
 
                 dealer9.setImageResource(R.drawable.blank);
 
+                game.createDeck();
+
                 game.shuffle();
+
+                game.dealDealer();
+
+                dealer0.setImageResource(R.drawable.blue_back);
+
+                game.dealPlayer();
+
+                int card = game.getPlayer().get(0);
+
+                player0.setImageResource(card(card));
+
+                game.dealDealer();
+
+                card = game.getDealer().get(1);
+
+                dealer1.setImageResource(card(card));
+
+                game.dealPlayer();
+
+                card = game.getPlayer().get(1);
+
+                player1.setImageResource(card(card));
+
+                dealer_count.setText(Integer.toString(game.countDealerHidden()));
+
+                player_count.setText(Integer.toString(game.countPlayer()));
 
             }
         });
@@ -170,6 +198,119 @@ public class MainActivity extends AppCompatActivity {
         game.shuffle();
 
         }
+
+        public int card(int i){
+            switch(i){
+                case 0:
+                    return R.drawable.c0;
+                case 1:
+                    return R.drawable.c1;
+                case 2:
+                    return R.drawable.c2;
+                case 3:
+                    return R.drawable.c3;
+                case 4:
+                    return R.drawable.c4;
+                case 5:
+                    return R.drawable.c5;
+                case 6:
+                    return R.drawable.c6;
+                case 7:
+                    return R.drawable.c7;
+                case 8:
+                    return R.drawable.c8;
+                case 9:
+                    return R.drawable.c9;
+                case 10:
+                    return R.drawable.c10;
+                case 11:
+                    return R.drawable.c11;
+                case 12:
+                    return R.drawable.c12;
+                case 13:
+                    return R.drawable.c13;
+                case 14:
+                    return R.drawable.c14;
+                case 15:
+                    return R.drawable.c15;
+                case 16:
+                    return R.drawable.c16;
+                case 17:
+                    return R.drawable.c17;
+                case 18:
+                    return R.drawable.c18;
+                case 19:
+                    return R.drawable.c19;
+                case 20:
+                    return R.drawable.c20;
+                case 21:
+                    return R.drawable.c21;
+                case 22:
+                    return R.drawable.c22;
+                case 23:
+                    return R.drawable.c23;
+                case 24:
+                    return R.drawable.c24;
+                case 25:
+                    return R.drawable.c25;
+                case 26:
+                    return R.drawable.c26;
+                case 27:
+                    return R.drawable.c27;
+                case 28:
+                    return R.drawable.c28;
+                case 29:
+                    return R.drawable.c29;
+                case 30:
+                    return R.drawable.c30;
+                case 31:
+                    return R.drawable.c31;
+                case 32:
+                    return R.drawable.c32;
+                case 33:
+                    return R.drawable.c33;
+                case 34:
+                    return R.drawable.c34;
+                case 35:
+                    return R.drawable.c35;
+                case 36:
+                    return R.drawable.c36;
+                case 37:
+                    return R.drawable.c37;
+                case 38:
+                    return R.drawable.c38;
+                case 39:
+                    return R.drawable.c39;
+                case 40:
+                    return R.drawable.c40;
+                case 41:
+                    return R.drawable.c41;
+                case 42:
+                    return R.drawable.c42;
+                case 43:
+                    return R.drawable.c43;
+                case 44:
+                    return R.drawable.c44;
+                case 45:
+                    return R.drawable.c45;
+                case 46:
+                    return R.drawable.c46;
+                case 47:
+                    return R.drawable.c47;
+                case 48:
+                    return R.drawable.c48;
+                case 49:
+                    return R.drawable.c49;
+                case 50:
+                    return R.drawable.c50;
+                case 51:
+                    return R.drawable.c51;
+
+            }
+            return -1;
+        }
+
+
 
 
     }
