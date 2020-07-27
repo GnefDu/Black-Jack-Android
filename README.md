@@ -21,7 +21,7 @@ Card values:
 Extra black jack rules:
 
 1) There is currently money/betting implemented
-2) No splitting, doubling, or blackjack implmented
+2) No splitting, doubling, or blackjack implemented
 
 
 User Stories:
