@@ -49,18 +49,18 @@ public class Game {
         this.dealer.add(this.deck.get(randPos));
         this.deck.remove(randPos);
     }
-
+    // count the value of player hand
     public int countPlayer(){
 
-        boolean ace = false;
+        int ace = 0;
         int count = 0;
-
+        // no ace in hand
         for (int i = 0; i < this.getPlayer().size(); i++){
             if(this.getPlayer().get(i) < 4){
-                ace = true;
+                ace += 1;
             }
         }
-        if(!ace){
+        if(ace == 0){
             for (int i = 0; i < this.getPlayer().size(); i++){
                 if(this.getPlayer().get(i) > 38){
                     count += 10;
@@ -70,7 +70,9 @@ public class Game {
                 }
             }
         }
+        // ace in hand
         else{
+            //counts ace as 11
             for (int i = 0; i < this.getPlayer().size(); i++){
                 if(this.getPlayer().get(i) < 4){
                     count += 11;
@@ -83,14 +85,23 @@ public class Game {
                 }
             }
         }
-        if(count > 21){
-            count = 0;
-            for (int i = 0; i < this.getPlayer().size(); i++){
-                if(this.getPlayer().get(i) > 38){
-                    count += 10;
-                }
-                else{
-                    count += (this.getPlayer().get(i) / 4) + 1;
+        // if greater than 21 check i
+        while(ace > 0){
+            ace--;
+            if(count > 21){
+                int countAce = 0;
+                count = 0;
+                for (int i = 0; i < this.getPlayer().size(); i++){
+                    if(this.getPlayer().get(i) < 4 & countAce < ace){
+                        count += 11;
+                        countAce++;
+                    }
+                    else if(this.getPlayer().get(i) > 38){
+                        count += 10;
+                    }
+                    else{
+                        count += (this.getPlayer().get(i) / 4) + 1;
+                    }
                 }
             }
         }
@@ -99,15 +110,15 @@ public class Game {
 
     public int countDealer(){
 
-        boolean ace = false;
+        int ace = 0;
         int count = 0;
-
+        // no ace in hand
         for (int i = 0; i < this.getDealer().size(); i++){
             if(this.getDealer().get(i) < 4){
-                ace = true;
+                ace += 1;
             }
         }
-        if(!ace){
+        if(ace == 0){
             for (int i = 0; i < this.getDealer().size(); i++){
                 if(this.getDealer().get(i) > 38){
                     count += 10;
@@ -117,7 +128,9 @@ public class Game {
                 }
             }
         }
+        // ace in hand
         else{
+            //counts ace as 11
             for (int i = 0; i < this.getDealer().size(); i++){
                 if(this.getDealer().get(i) < 4){
                     count += 11;
@@ -130,14 +143,23 @@ public class Game {
                 }
             }
         }
-        if(count > 21){
-            count = 0;
-            for (int i = 0; i < this.getDealer().size(); i++){
-                if(this.getDealer().get(i) > 38){
-                    count += 10;
-                }
-                else{
-                    count += (this.getDealer().get(i) / 4) + 1;
+        // if greater than 21 check i
+        while(ace > 0){
+            ace--;
+            if(count > 21){
+                int countAce = 0;
+                count = 0;
+                for (int i = 0; i < this.getDealer().size(); i++){
+                    if(this.getDealer().get(i) < 4 & countAce < ace){
+                        count += 11;
+                        countAce++;
+                    }
+                    else if(this.getDealer().get(i) > 38){
+                        count += 10;
+                    }
+                    else{
+                        count += (this.getDealer().get(i) / 4) + 1;
+                    }
                 }
             }
         }
