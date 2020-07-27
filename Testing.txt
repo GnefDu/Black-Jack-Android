@@ -1,4 +1,4 @@
-Testing Game.java using a test based main program:
+Testing Game.java using a text based main program:
 
 J = 0
 25
