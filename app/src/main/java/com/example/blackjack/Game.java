@@ -1,3 +1,7 @@
+/*
+Author: Feng Du
+ */
+
 package com.example.blackjack;
 
 import java.util.*;
