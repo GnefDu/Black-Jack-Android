@@ -1,6 +1,6 @@
 The app plays a simplified version of blackjack with the following rules:
 
-1)The deck is shuffled
+1) The deck is shuffled
 2) Dealer is dealt a card then the player is dealt a card (x2)
 3) The first card dealt to the dealer is face down
 4) The player can then choose to hit as many times as they want until they bust (and lose) or choose to stand
