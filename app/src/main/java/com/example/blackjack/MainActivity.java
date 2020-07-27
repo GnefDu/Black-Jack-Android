@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.ImageView;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -113,59 +114,25 @@ public class MainActivity extends AppCompatActivity {
 
         //OnClickListeners for each button
 
-        // Hit results in player drawing a card
-        // If player busts the player is notified
-        button_hit.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-                if(!start){
-                    text_display.setText("Press the deal button before hitting");
-                    return;
-                }
-
-                game.dealPlayer();
-                getImagePlayer(playerCard).setImageResource(getId(game.getPlayer().get(playerCard)));
-                player_count.setText(Integer.toString(game.countPlayer()));
-                playerCard++;
-                if(game.countPlayer() > 21){
-                    text_display.setText("Player bust, Dealer wins");
-                    dealer0.setImageResource(getId(game.getDealer().get(0)));
-
-                }
-            }
-        });
-
-        // Stand allows dealer to draw until greater than 17 or bust
-        // Hands are then compared and winner is announced
+        //If hit or stand are pressed before the first deal
         button_stand.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 
-                if(!start){
+                if (!start) {
                     text_display.setText("Press the deal button before standing");
                     return;
                 }
-                int card = 2;
-                while (game.countDealer() < 17) {
-                    game.dealDealer();
-                    getImageDealer(card).setImageResource(getId(game.getDealer().get(card)));
-                    card++;
-                }
-                dealer_count.setText(Integer.toString(game.countDealer()));
-                dealer0.setImageResource(getId(game.getDealer().get(0)));
+            }
+        });
 
-                if(game.countDealer() > 21){
-                    text_display.setText("Dealer bust, Player wins");
-                }
-                else if(game.countPlayer() > game.countDealer()){
-                    text_display.setText("Player wins");
-                }
-                else if(game.countPlayer() == game.countDealer()){
-                    text_display.setText("Tie");
-                }
-                else{
-                    text_display.setText("Dealer wins");
+        button_hit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                if (!start) {
+                    text_display.setText("Press the deal button before hitting");
+                    return;
                 }
             }
         });
@@ -253,6 +220,73 @@ public class MainActivity extends AppCompatActivity {
                 dealer_count.setText(Integer.toString(game.countDealerHidden()));
 
                 player_count.setText(Integer.toString(game.countPlayer()));
+
+
+
+                // Hit results in player drawing a card
+                // If player busts the player is notified
+                button_hit.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+
+                        if(!start){
+                            text_display.setText("Press the deal button before hitting");
+                            return;
+                        }
+
+                        game.dealPlayer();
+                        getImagePlayer(playerCard).setImageResource(getId(game.getPlayer().get(playerCard)));
+                        player_count.setText(Integer.toString(game.countPlayer()));
+                        playerCard++;
+                        if(game.countPlayer() > 21){
+                            text_display.setText("Player bust, Dealer wins");
+                            dealer0.setImageResource(getId(game.getDealer().get(0)));
+                            button_hit.setOnClickListener(null);
+
+                        }
+                    }
+                });
+                // Stand allows dealer to draw until greater than 17 or bust
+                // Hands are then compared and winner is announced
+                button_stand.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+
+                        if(!start){
+                            text_display.setText("Press the deal button before standing");
+                            return;
+                        }
+                        int card = 2;
+                        while (game.countDealer() < 17) {
+                            game.dealDealer();
+                            getImageDealer(card).setImageResource(getId(game.getDealer().get(card)));
+                            card++;
+                        }
+                        dealer_count.setText(Integer.toString(game.countDealer()));
+                        dealer0.setImageResource(getId(game.getDealer().get(0)));
+
+                        if(game.countDealer() > 21){
+                            text_display.setText("Dealer bust, Player wins");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                        else if(game.countPlayer() > game.countDealer()){
+                            text_display.setText("Player wins");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                        else if(game.countPlayer() == game.countDealer()){
+                            text_display.setText("Tie");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                        else{
+                            text_display.setText("Dealer wins");
+                            button_stand.setOnClickListener(null);
+                            button_hit.setOnClickListener(null);
+                        }
+                    }
+                });
 
             }
         });
