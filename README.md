@@ -23,6 +23,7 @@ Extra black jack rules:
 1) There is currently money/betting implemented
 2) No splitting, doubling, or blackjack implemented
 
+
 State diagram along with umple code are included as files in the top level of the github repository.
 
 
